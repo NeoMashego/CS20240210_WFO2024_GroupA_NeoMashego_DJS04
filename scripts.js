@@ -60,7 +60,7 @@ for (const [id, name] of Object.entries(authors)) {
 }
 
 document.querySelector('[data-search-authors]').appendChild(authorsHtml)
-
+/*
 //theme setup
 function setupTheme() {
     const themeSelector = document.querySelector('[data-settings-theme]');
@@ -84,7 +84,7 @@ function applyingTheme(theme){
         document.documentElement.style.setProperty('--color-light', '255, 255, 255');
     }
 }
-setupTheme();
+setupTheme();*/
 
 document.querySelector('[data-list-button]').innerText = `Show more (${books.length - BOOKS_PER_PAGE})`
 document.querySelector('[data-list-button]').disabled = (matches.length - (page * BOOKS_PER_PAGE)) > 0
@@ -190,7 +190,7 @@ document.querySelector('[data-search-form]').addEventListener('submit', (event) 
         element.classList = 'preview'
         element.setAttribute('data-preview', id)
     
-        /*element.innerHTML = `
+        element.innerHTML = `
             <img
                 class="preview__image"
                 src="${image}"
@@ -202,7 +202,7 @@ document.querySelector('[data-search-form]').addEventListener('submit', (event) 
             </div>
         `
 
-        newItems.appendChild(element)*/
+        newItems.appendChild(element)
     }
 
     document.querySelector('[data-list-items]').appendChild(newItems)

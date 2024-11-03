@@ -51,3 +51,43 @@ class BookPreview extends HTMLElement {
 }
 
 customElements.define('book-preview', BookPreview);
+
+class ThemeToggle extends HTMLElement {
+    constructor() {
+      super();
+      this.attachShadow({ mode: "open" });
+    }
+
+    connectedCallback() {
+      this.render();
+      this.shadowRoot.querySelector("button")
+    }
+
+    setUpTheme() {
+      const currentTheme =
+        document.documentElement.style.getPropertyValue("--color-dark") === "255, 255, 255" ? "night" : "day";
+        const newTheme = currentTheme === "night" ? "day" : "night";
+      applyTheme(newTheme);
+    }
+  
+    render() {
+      this.shadowRoot.innerHTML = `
+        <style>
+            button {
+                padding: 0.5rem 1rem;
+                background-color: var(--color-dark);
+                color: var(--color-light);
+                border: none;
+                border-radius: 5px;
+                cursor: pointer;
+            }
+            button:hover {
+            background-color: green;
+            }
+        </style>
+        <button>Toggle Theme</button>
+      `;
+    }
+  }
+
+  customElements.define("theme-toggle", ThemeToggle);
