@@ -3,20 +3,22 @@ class BookPreview extends HTMLElement {
     constructor(){
         super();
         this.attachShadow( {mode: "open"})
+        this.image = "";
+        this.title = "";
+        this.authors = [];
     }
 
     connectedCallback(){
         this.render();
-        this.preview.document.querySelector("[preview]")
     }
 
     render(){
         this.preview.innerHTML = `
-            <img class="preview__image" src="${image}"/>
+            <img class="preview__image" src="${this.image}"/>
             
             <div class="preview__info">
-                <h3 class="preview__title">${title}</h3>
-                <div class="preview__author">${authors[author]}</div>
+                <h3 class="preview__title">${this.title}</h3>
+                <div class="preview__author">${this.authors.join(", ")}</div>
             </div>
             <style>
                 .preview {
@@ -47,3 +49,5 @@ class BookPreview extends HTMLElement {
         `
     }
 }
+
+customElements.define('book-preview', BookPreview);
