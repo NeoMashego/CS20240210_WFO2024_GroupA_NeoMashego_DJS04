@@ -190,7 +190,7 @@ document.querySelector('[data-search-form]').addEventListener('submit', (event) 
         element.classList = 'preview'
         element.setAttribute('data-preview', id)
     
-        element.innerHTML = `
+        /*element.innerHTML = `
             <img
                 class="preview__image"
                 src="${image}"
@@ -202,7 +202,7 @@ document.querySelector('[data-search-form]').addEventListener('submit', (event) 
             </div>
         `
 
-        newItems.appendChild(element)
+        newItems.appendChild(element)*/
     }
 
     document.querySelector('[data-list-items]').appendChild(newItems)
